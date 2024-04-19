@@ -1,0 +1,23 @@
+{
+  "instrutores": [
+    {
+      "id": 1,
+      "nome": "João",
+      "cpf": "45678901200",
+      "especialidades": "Musculação, Pilates e Funcional"
+    },
+    {
+      "id": 2,
+      "nome": "Maria",
+      "cpf": "21098765400",
+      "especialidades": "Musculação e Nutrição"
+    },
+    {
+      "id": 3,
+      "nome": "André",
+      "cpf": "89012345600",
+      "especialidades": "Yoga, Pilates e Nutrição"
+    }
+  ],
+  "idCounter": 11
+}

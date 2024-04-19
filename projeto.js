@@ -1,3 +1,6 @@
+// Import
+import Academia from "./Models/Academia.js";
+
 // Tipos de Plano de Assinatura.
 const tipoDeAssinatura = {
     basico: "Plano Básico",
@@ -5,190 +8,74 @@ const tipoDeAssinatura = {
     premium: "Plano Premium"
 }
 
-// Dias da Semana.
-const calendario = [
-    { dia: 'Domingo', inicio: '', fim: '' },
-    { dia: 'Segunda', inicio: '', fim: ''},
-    { dia: 'Terça', inicio: '', fim: '' },
-    { dia: 'Quarta', inicio: '', fim: '' },
-    { dia: 'Quinta', inicio: '', fim: '' },
-    { dia: 'Sexta', inicio: '', fim: '' },
-    { dia: 'Sábado', inicio: '', fim: '' },
-];
+/**
+ *
+ * 
+ *  Testes Manuais
+ * 
+ * 
+**/
 
-///
-/// Classe do Membro
-///
-class Membro {
-    constructor(nome, idade, endereco, telefone, cpf, planoDeAssinatura){
-        this.nome = nome;
-        this.idade = idade;
-        this.endereco = endereco;
-        this.telefone = telefone;
-        this.cpf = cpf;
-        this.planoDeAssinatura = planoDeAssinatura;
-        this.planosDeTreino = [];
-    }
-}
-
-///
-/// Classe do Plano de Treino
-///
-class planoDeTreino {
-    constructor(titulo, frequencia, horarioInicio, horarioFim, totalDeDias, exercicios) {
-        this.titulo = titulo; // Nome do treino.
-        this.frequencia = frequencia; // Lista dos dias da semana.
-        this.horarioInicio = horarioInicio;
-        this.horarioFim = horarioFim;
-        this.totalDeDias = totalDeDias; // Quantidade de dias do treino.
-        this.exercicios = exercicios; // Lista de exercícios.
-    }
-}
-
-///
-/// Classe do Instrutor
-///
-class Instrutor {
-    constructor(nome, especialidades, agenda) {
-        this.nome = nome;
-        this.especialidades = especialidades; // Lista das especialidades.
-        this.agenda = agenda; // Lista dos dias, e dos horários disponíveis de cada dia.
-    }
-}
-
-///
-/// Classe da Aula
-///
-class Aula {
-    constructor(titulo, dia, horarioInicio, horarioFim) {
-        this.titulo = titulo; // Nome da Aula.
-        this.dia = dia; // Dia da aula.
-        this.horarioInicio = horarioInicio;
-        this.horarioFim = horarioFim;
-    }
-}
-
-///
-/// Classe da Academia
-///
-class Academia {
-    constructor() {
-        this.membros = [];
-        this.instrutores = [];
-        this.aulas = [];
-    }
-
-    registrarMembro(nome, idade, endereco, telefone, cpf, planoDeAssinatura) {
-        const novoMembro = new Membro(nome, idade, endereco, telefone, cpf, planoDeAssinatura);
-        this.membros.push(novoMembro);
-    }
-
-    registrarInstrutor(nome, especialidades, agenda) {
-        const novoInstrutor = new Instrutor(nome, especialidades, agenda);
-        this.instrutores.push(novoInstrutor);
-    }
-
-    listarMembros() {
-        if (!this.membros.length) {
-            console.log("Não há membros cadastrados.")
-        }
-        else
-        {
-            console.log("Membros da Academia: ")
-            this.membros.forEach((membro, index) => {
-                console.log(`${index + 1}. ${membro.nome}`);
-            });
-        }
-    }
-
-    listarInstrutores() {
-        if (!this.instrutores.length) {
-            console.log("Não há instrutores cadastrados.")
-        }
-        else
-        {
-            console.log("Instrutores da Academia: ")
-            this.instrutores.forEach((instrutor, index) => {
-                console.log(`${index + 1}. ${instrutor.nome}`);
-            });
-        }
-    }
-
-    agendarAula(instrutor, horarioInicio) {
-        if (!this.aulas.length) {
-            console.log("Não há aulas agendadas.")
-        }
-        else
-        {
-
-        }
-    }
-
-}
-
+// Instanciando a academia.
 const academia = new Academia();
-academia.registrarMembro("Ana Silva", 28, "123 Main Street, Redmond, WA", "(555) 123-4567", "123-45-6789", tipoDeAssinatura["basico"]);
-academia.registrarMembro("Carlos Oliveira", 35, "456 Elm Avenue, Seattle, WA", "(555) 987-6543", "987-65-4321", tipoDeAssinatura["basico"]);
+
+//Registrando Instrutores (nome, especialidades).
+academia.registrarInstrutor("João", "45678901200", "Musculação e Pilates");
+academia.registrarInstrutor("Maria", "21098765400", "Musculação e Nutrição");
+academia.registrarInstrutor("André", "89012345600", "Yoga, Pilates e Nutrição");
+academia.registrarInstrutor("Camila", "25666901200", "Nutrição");
+
+// Registrando membros (nome, idade, endereco, telefone, cpf, planoDeAssinatura).
+academia.registrarMembro("Maria da Silva", 32, "Rua das Flores, 123, Bairro Alegria, São Paulo, SP", "(11) 98765-4321", "12345678900", tipoDeAssinatura["basico"]);
+academia.registrarMembro("João Pereira", 45, "Avenida Central, 456, Bairro Centro, Rio de Janeiro, RJ", "(21) 98765-1234", "98765432100", tipoDeAssinatura["basico"]);
+academia.registrarMembro("Ana Souza", 28, "Travessa das Palmeiras, 789, Bairro Verde, Belo Horizonte, MG", "(31) 98765-5678", "54321098700", tipoDeAssinatura["gold"]);
+academia.registrarMembro("Pedro Oliveira", 50, "Rua dos Pinheiros, 321, Bairro Jardim, Curitiba, PR", "(41) 98765-8765", "76543210900", tipoDeAssinatura["basico"]);
+academia.registrarMembro("Fernanda Lima", 29, "Rua das Violetas, 876, Bairro Primavera, Recife, PE", "(81) 98765-3456", "34567890100", tipoDeAssinatura["premium"]);
+academia.registrarMembro("Laura Santos", 22, "Alameda das Acácias, 987, Bairro Florido, Porto Alegre, RS", "(51) 98765-2345", "21098765400", tipoDeAssinatura["gold"]);
+
+// Remover Instrutores e Membros.
+academia.removerInstrutor(4);
+academia.removerMembro(10);
+
+// Listar Instrutores e Membros da Academia.
+academia.listarInstrutores();
 academia.listarMembros();
 
-academia.registrarInstrutor("João Trapézio", "Musculação", [
-    {dia: 1, inicio: '10:30', fim: '22:00'},
-    {dia: 2, inicio: '11:00', fim: '22:30'}
-]);
-academia.registrarInstrutor("Maria Levanta Ferro", "Musculação", [
-    {dia: 1, inicio: '9:30', fim: '22:00'},
-    {dia: 2, inicio: '10:00', fim: '22:30'}
-]);
-academia.listarInstrutores();
+// Visualizar Insformações de Instrutor e Membro.
+academia.visualizarInformacoesInstrutor("45678901200");
+academia.visualizarInformacoesMembro("12345678900");
 
+// Atualizar Informações
+academia.atualizarInformacoesInstrutor("45678901200", "João", "Musculação, Pilates e Funcional");
+academia.atualizarInformacoesMembro("12345678900", "Maria da Silva", 32, "Rua das Flores, 123, Bairro Alegria, São Paulo, SP", "(11) 98765-4321", tipoDeAssinatura["premium"]);
 
+// Visualizar novamente Instrutores e Membros da Academia.
+academia.visualizarInformacoesInstrutor("45678901200");
+academia.visualizarInformacoesMembro("12345678900");
 
+// Agendamento de aulas.
+academia.listarAulasAgendadas();
+academia.agendarAula("Musculação", "24/04/2024", "09:00-10:00", "João", "Maria da Silva");
+academia.agendarAula("Troca de Treino", "23/04/2024", "09:00-10:00", "Maria", "Pedro Oliveira");
+academia.agendarAula("Pilates", "22/04/2024", "12:00-13:00", "André", "Ana Souza");
+academia.agendarAula("Nutrição", "22/04/2024", "12:00-13:00", "André", "João Pereira");
+academia.agendarAula("Musculação", "22/04/2024", "10:00-11:00", "Maria", "João Pereira");
+academia.listarAulasAgendadas();
 
-// Array of reserved time slots
-const reservedTimeSlots = [
-    { start: '10:00', end: '11:00' },
-    { start: '13:00', end: '14:00' },
-    { start: '16:00', end: '17:00' }
-];
+// Excluir aula agendada.
+academia.cancelarAulaAgendada(2);
+academia.listarAulasAgendadas();
 
-// Function to check if a time slot is available
-function isTimeSlotAvailable(start, end, duration) {
-    // Convert time slots to a format that can be compared
-    const startTime = start + '-' + end;
-    const endTime = end + '-' + start;
+// Criar Planos de Treino.
+academia.criarPlanoDeTreino("34567890100", "Yoga Matinal", "Diariamente", "7:00", "8:00", 30, "Alongamento, posturas de yoga");
+academia.criarPlanoDeTreino("34567890100", "Treino Funcional", "Segunda a Sexta", "12:00", "13:00", 20, "Circuitos, burpees, pranchas");
+academia.criarPlanoDeTreino("12345678900", "Treino de Força", "Segundas, Quartas e Qextas", "18:30", "19:30", 12, "Levantamento de peso, agachamentos, flexões");
+academia.criarPlanoDeTreino("98765432100", "Treino Funcional", "Segunda a Sexta", "12:00", "13:00", 20, "Circuitos, burpees, pranchas");
 
-    // Check if the time slot is not in the reserved time slots array
-    // and if the duration is available
-    return (
-        !reservedTimeSlots.some(
-        (reservedSlot) =>
-            (start <= reservedSlot.start && end >= reservedSlot.start) ||
-            (start <= reservedSlot.end && end >= reservedSlot.end)
-        ) && (end - start) >= duration
-    );
-}
+// Visualizar Planos de Treino
+academia.visualizarPlanosDeTreinoDoMembro("34567890100");
 
-// Example usage
-const classStart = '11:00';
-const classEnd = '12:00';
-const classDuration = 60; // in minutes
+// Exportar todos os dados da Academia como JSON.
+// (Instrutores, Membros, Aulas Agendadas, Planos de Treino e IDs)
+academia.exportarDadosComoJSON();
 
-if (isTimeSlotAvailable(classStart, classEnd, classDuration)) {
-console.log(
-    'The time slot from ' +
-    classStart +
-    ' to ' +
-    classEnd +
-    ' is available and has a duration of ' +
-    classDuration +
-    ' minutes.'
-);
-} else {
-console.log(
-    'The time slot from ' +
-    classStart +
-    ' to ' +
-    classEnd +
-    ' is not available or the duration is not sufficient.'
-);
-}

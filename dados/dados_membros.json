@@ -1,0 +1,90 @@
+{
+  "membros": [
+    {
+      "id": 5,
+      "nome": "Maria da Silva",
+      "idade": 32,
+      "endereco": "Rua das Flores, 123, Bairro Alegria, São Paulo, SP",
+      "telefone": "(11) 98765-4321",
+      "cpf": "12345678900",
+      "planoDeAssinatura": "Plano Premium",
+      "planosDeTreino": [
+        {
+          "titulo": "Treino de Força",
+          "frequencia": "Segundas, Quartas e Qextas",
+          "horarioInicio": "18:30",
+          "horarioFim": "19:30",
+          "totalDeDias": 12,
+          "exercicios": "Levantamento de peso, agachamentos, flexões"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "nome": "João Pereira",
+      "idade": 45,
+      "endereco": "Avenida Central, 456, Bairro Centro, Rio de Janeiro, RJ",
+      "telefone": "(21) 98765-1234",
+      "cpf": "98765432100",
+      "planoDeAssinatura": "Plano Básico",
+      "planosDeTreino": [
+        {
+          "titulo": "Treino Funcional",
+          "frequencia": "Segunda a Sexta",
+          "horarioInicio": "12:00",
+          "horarioFim": "13:00",
+          "totalDeDias": 20,
+          "exercicios": "Circuitos, burpees, pranchas"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "nome": "Ana Souza",
+      "idade": 28,
+      "endereco": "Travessa das Palmeiras, 789, Bairro Verde, Belo Horizonte, MG",
+      "telefone": "(31) 98765-5678",
+      "cpf": "54321098700",
+      "planoDeAssinatura": "Plano Gold",
+      "planosDeTreino": []
+    },
+    {
+      "id": 8,
+      "nome": "Pedro Oliveira",
+      "idade": 50,
+      "endereco": "Rua dos Pinheiros, 321, Bairro Jardim, Curitiba, PR",
+      "telefone": "(41) 98765-8765",
+      "cpf": "76543210900",
+      "planoDeAssinatura": "Plano Básico",
+      "planosDeTreino": []
+    },
+    {
+      "id": 9,
+      "nome": "Fernanda Lima",
+      "idade": 29,
+      "endereco": "Rua das Violetas, 876, Bairro Primavera, Recife, PE",
+      "telefone": "(81) 98765-3456",
+      "cpf": "34567890100",
+      "planoDeAssinatura": "Plano Premium",
+      "planosDeTreino": [
+        {
+          "titulo": "Yoga Matinal",
+          "frequencia": "Diariamente",
+          "horarioInicio": "7:00",
+          "horarioFim": "8:00",
+          "totalDeDias": 30,
+          "exercicios": "Alongamento, posturas de yoga"
+        },
+        {
+          "titulo": "Treino Funcional",
+          "frequencia": "Segunda a Sexta",
+          "horarioInicio": "12:00",
+          "horarioFim": "13:00",
+          "totalDeDias": 20,
+          "exercicios": "Circuitos, burpees, pranchas"
+        }
+      ]
+    }
+  ],
+  "idCounter": 11
+}
