@@ -10,6 +10,7 @@
       "planoDeAssinatura": "Plano Premium",
       "planosDeTreino": [
         {
+          "id": 1,
           "titulo": "Treino de Força",
           "frequencia": "Segundas, Quartas e Qextas",
           "horarioInicio": "18:30",
@@ -17,7 +18,8 @@
           "totalDeDias": 12,
           "exercicios": "Levantamento de peso, agachamentos, flexões"
         }
-      ]
+      ],
+      "idPlano": 2
     },
     {
       "id": 6,
@@ -29,6 +31,7 @@
       "planoDeAssinatura": "Plano Básico",
       "planosDeTreino": [
         {
+          "id": 1,
           "titulo": "Treino Funcional",
           "frequencia": "Segunda a Sexta",
           "horarioInicio": "12:00",
@@ -36,7 +39,8 @@
           "totalDeDias": 20,
           "exercicios": "Circuitos, burpees, pranchas"
         }
-      ]
+      ],
+      "idPlano": 2
     },
     {
       "id": 7,
@@ -46,7 +50,8 @@
       "telefone": "(31) 98765-5678",
       "cpf": "54321098700",
       "planoDeAssinatura": "Plano Gold",
-      "planosDeTreino": []
+      "planosDeTreino": [],
+      "idPlano": 1
     },
     {
       "id": 8,
@@ -56,7 +61,8 @@
       "telefone": "(41) 98765-8765",
       "cpf": "76543210900",
       "planoDeAssinatura": "Plano Básico",
-      "planosDeTreino": []
+      "planosDeTreino": [],
+      "idPlano": 1
     },
     {
       "id": 9,
@@ -68,6 +74,7 @@
       "planoDeAssinatura": "Plano Premium",
       "planosDeTreino": [
         {
+          "id": 1,
           "titulo": "Yoga Matinal",
           "frequencia": "Diariamente",
           "horarioInicio": "7:00",
@@ -76,14 +83,16 @@
           "exercicios": "Alongamento, posturas de yoga"
         },
         {
-          "titulo": "Treino Funcional",
-          "frequencia": "Segunda a Sexta",
-          "horarioInicio": "12:00",
-          "horarioFim": "13:00",
-          "totalDeDias": 20,
-          "exercicios": "Circuitos, burpees, pranchas"
+          "id": 3,
+          "titulo": "Treino de Força",
+          "frequencia": "Diariamente",
+          "horarioInicio": "7:00",
+          "horarioFim": "8:00",
+          "totalDeDias": 30,
+          "exercicios": "Levantamento de peso, agachamentos"
         }
-      ]
+      ],
+      "idPlano": 4
     }
   ],
   "idCounter": 11

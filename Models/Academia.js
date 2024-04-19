@@ -111,22 +111,6 @@ class Academia {
         }
     }
 
-    cancelarAulaAgendada(idAula) {
-        const aula = this.aulasAgendadas.find(obj => obj.id === idAula);
-        if (aula) {
-            const indexParaRemover = this.aulasAgendadas.indexOf(aula);
-            this.aulasAgendadas.splice(indexParaRemover, 1);
-            console.log("Aula excluida do sistema.");
-        }
-        else {
-            console.log("Aula não encontrada.")
-        }
-    }
-
-    excluirPlanoDeTreino(idPlano) {
-
-    }
-
     visualizarInformacoesMembro(cpf) {
         console.log("----- Informações Membro -----");
         const membro = this.membros.find(obj => obj.cpf === cpf);
@@ -197,9 +181,10 @@ class Academia {
 
     criarPlanoDeTreino(cpfMembro, titulo, frequencia, horarioInicio, horarioFim, totalDeDias, exercicios) {
         const membro = this.membros.find(obj => obj.cpf === cpfMembro);
-        const novoPlano = new PlanoDeTreino(titulo, frequencia, horarioInicio, horarioFim, totalDeDias, exercicios);
         if (membro) {
-            membro.planosDeTreino.push(novoPlano)
+            const novoPlano = new PlanoDeTreino(membro.idPlano, titulo, frequencia, horarioInicio, horarioFim, totalDeDias, exercicios);
+            membro.planosDeTreino.push(novoPlano);
+            membro.idPlano++;
             console.log(`Plano de Treino criado para ${membro.nome}.`);
         }
         else {
@@ -217,9 +202,9 @@ class Academia {
         }
         // titulo, frequencia, horarioInicio, horarioFim, totalDeDias, exercicios
         if (membro.planosDeTreino.length) {
-            console.log(`----- Planos de Treino - ${membro.nome} -----`);
+            console.log(`----- Planos de Treino - ${membro.nome} ID(${membro.id}) -----`);
             membro.planosDeTreino.forEach((plano, index) => {
-                console.log(`${index + 1}. ${plano.titulo} \nExercícios: ${plano.exercicios} \nHorário: ${plano.horarioInicio}-${plano.horarioFim} \nFrequência: ${plano.frequencia} \nTotal de Dias: ${plano.totalDeDias} `);
+                console.log(`${index + 1}. id(${plano.id}) ${plano.titulo} \nExercícios: ${plano.exercicios} \nHorário: ${plano.horarioInicio}-${plano.horarioFim} \nFrequência: ${plano.frequencia} \nTotal de Dias: ${plano.totalDeDias} `);
             });
             console.log("----- --------------------------------- -----");
         }
@@ -229,8 +214,43 @@ class Academia {
         
     }
 
+    cancelarAulaAgendada(idAula) {
+        const aula = this.aulasAgendadas.find(obj => obj.id === idAula);
+        if (aula) {
+            const indexParaRemover = this.aulasAgendadas.indexOf(aula);
+            this.aulasAgendadas.splice(indexParaRemover, 1);
+            console.log("Aula excluida do sistema.");
+        }
+        else {
+            console.log("Aula não encontrada.")
+        }
+    }
+
+    excluirPlanoDeTreino(idMembro, idPlano) {
+        const membro = this.membros.find(obj => obj.id === idMembro);
+        if (membro) {
+            const plano = membro.planosDeTreino.find(obj => obj.id === idPlano);
+            if (plano) {
+                const indexParaRemover = membro.planosDeTreino.indexOf(plano);
+                membro.planosDeTreino.splice(indexParaRemover, 1);
+                console.log("Plano de Treino excluido do sistema.");
+            }
+            else {
+                console.log("Plano de Treino não encontrado.")
+            }
+        }
+        else {
+            console.log("Membro não encontrado.")
+        }
+    }
+
     exportarDadosComoJSON() {
-        // Convertendo todos os dados da Academia para JSON.
+        // Nomes e caminhos dos arquivos.
+        const nomeArquivoInstrutores = "dados/dados_instrutores.json";
+        const nomeArquivoMembros = "dados/dados_membros.json";
+        const nomeArquivoAulasAgendadas = "dados/dados_aulasAgendadas.json";
+
+        // Convertendo os dados da Academia para JSON.
         const dadosJSONInstrutores = JSON.stringify({
             instrutores : this.instrutores,
             idCounter : this.idCounter
@@ -244,10 +264,6 @@ class Academia {
         const dadosJSONAulasAgendadas = JSON.stringify({
             aulasAgendadas : this.aulasAgendadas,
         }, null, 2);
-
-        const nomeArquivoInstrutores = "dados/dados_instrutores.json";
-        const nomeArquivoMembros = "dados/dados_membros.json";
-        const nomeArquivoAulasAgendadas = "dados/dados_aulasAgendadas.json";
 
         // Criando/Atualizando arquivo JSON.
         fs.writeFile(nomeArquivoInstrutores, dadosJSONInstrutores, (err) => {

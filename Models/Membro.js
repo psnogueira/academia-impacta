@@ -11,6 +11,7 @@ class Membro {
         this.cpf = cpf;
         this.planoDeAssinatura = planoDeAssinatura;
         this.planosDeTreino = [];
+        this.idPlano = 1;
     }
 }
 
