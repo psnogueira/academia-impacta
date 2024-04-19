@@ -36,7 +36,7 @@ academia.registrarMembro("Laura Santos", 22, "Alameda das Acácias, 987, Bairro 
 academia.listarInstrutores();
 academia.listarMembros();
 
-// Visualizar Insformações de Instrutor e Membro.
+// Visualizar Informações de Instrutor e Membro.
 academia.visualizarInformacoesInstrutor("45678901200");
 academia.visualizarInformacoesMembro("12345678900");
 
@@ -100,4 +100,3 @@ academia.visualizarPlanosDeTreinoDoMembro("34567890100");
 /// (Instrutores, Membros, Aulas Agendadas, Planos de Treino e IDs)
 ///
 academia.exportarDadosComoJSON();
-
